@@ -1,0 +1,189 @@
+syntax = "proto3";
+
+package Messages;
+
+message Msg_ElGamal_ciphertext {
+    // EC_POINT *C1 = nullptr;
+    // EC_POINT *C2 = nullptr;
+    bytes c1 = 1;
+    bytes c2 = 2;
+}
+
+message Msg_user_data {
+    // BIGNUM *u, *r;
+    bytes u = 1;
+    bytes r = 2;
+}
+
+message Msg_user_evidence {
+    // EC_POINT *U;
+    // ElGamal_ciphertext *V;
+    bytes U = 1;
+    Msg_ElGamal_ciphertext V = 2;
+}
+
+message Msg_Proof{
+    // EC_POINT *W, *W_, *C1, *C1_, *U_, *A_, *D_, **U, **A, **D;
+    // BIGNUM *k_hat, *x_hat, *y_hat;
+    bytes W = 1;
+    bytes W_prime = 2;
+    bytes C1 = 3;
+    bytes C1_prime = 4;
+    bytes U_prime = 5;
+    bytes A_prime = 6;
+    bytes D_prime = 7;
+    repeated bytes U = 8;
+    repeated bytes A = 9;
+    repeated bytes D = 10;
+    bytes k_hat = 11;
+    bytes x_hat = 12;
+    bytes y_hat = 13;
+}
+
+message Msg_P1{
+    // EC_POINT *P_, **P 
+    // BIGNUM *Z_hat
+    bytes P_prime = 1;
+    repeated bytes P = 2;
+    bytes Z_hat = 3;
+}
+
+message Msg_A2{
+    // ElGamal_ciphertext **C = nullptr;
+    // ElGamal_ciphertext **C_ = nullptr;
+    // EC_POINT **CA = nullptr;
+    // EC_POINT **CB = nullptr;
+    // EC_POINT **CD_ = nullptr;
+    // EC_POINT **A = nullptr;
+    // BIGNUM *E = nullptr;
+    // ElGamal_ciphertext *F = nullptr;
+    // EC_POINT **Q = nullptr;
+    // EC_POINT *GS_ = nullptr;
+    // EC_POINT *GS = nullptr;
+    // EC_POINT *pkA_ = nullptr;
+    // BIGNUM *skA_hat = nullptr;
+    // EC_POINT **C1_ = nullptr;
+    // EC_POINT **C2_ = nullptr;
+    // BIGNUM **x_hat = nullptr;
+    // BIGNUM **y_hat = nullptr;
+    repeated Msg_ElGamal_ciphertext C = 1;
+    repeated Msg_ElGamal_ciphertext C_prime = 2;
+    repeated bytes CA = 3;
+    repeated bytes CB = 4;
+    repeated bytes CD_prime = 5;
+    repeated bytes A = 6;
+    bytes E = 7;
+    Msg_ElGamal_ciphertext F = 8;
+    repeated bytes Q = 9;
+    bytes GS_prime = 10;
+    bytes GS = 11;
+    bytes pkA_prime = 12;
+    bytes skA_hat = 13;
+    repeated bytes C1_prime = 14;
+    repeated bytes C2_prime = 15;
+    repeated bytes x_hat = 16;
+    repeated bytes y_hat = 17;
+}
+
+message Msg_P3{
+    // EC_POINT **J = nullptr;
+    // EC_POINT **L = nullptr;
+    // BIGNUM *k2_hat = nullptr;
+    // EC_POINT *C2 = nullptr;
+    // EC_POINT *C2_ = nullptr;
+    // EC_POINT *C3 = nullptr;
+    // EC_POINT *C3_ = nullptr;
+    // BIGNUM *kq_hat = nullptr;
+    // EC_POINT *Q_ = nullptr;
+    // EC_POINT *A_ = nullptr;
+    repeated bytes J = 1;
+    repeated bytes L = 2;
+    bytes k2_hat = 3;
+    bytes C2 = 4;
+    bytes C2_prime = 5;
+    bytes C3 = 6;
+    bytes C3_prime = 7;
+    bytes kq_hat = 8;
+    bytes Q_prime = 9;
+    bytes A_prime = 10;
+}
+message Msg_P3_{
+    // int user_count_advertiser;
+    // int user_count_platform;
+    // EC_POINT **J = nullptr;
+    // EC_POINT **L = nullptr;
+    // BIGNUM *k2_hat = nullptr;
+    // BIGNUM *sk_p_hat = nullptr;
+    // EC_POINT *C2 = nullptr;
+    // EC_POINT *C2_ = nullptr;
+    // EC_POINT **Ct1_ = nullptr;
+    // EC_POINT **Ct2_ = nullptr;
+    // BIGNUM **x_hat_ = nullptr;
+    // BIGNUM **y_hat_ = nullptr;
+    // ElGamal_ciphertext **Ct = nullptr;
+    // ElGamal_ciphertext **Ct_ = nullptr;
+    // EC_POINT **CA_ = nullptr;
+    // EC_POINT **CB_ = nullptr;
+    // EC_POINT **CD__ = nullptr;
+    // BIGNUM *E_ = nullptr;
+    // ElGamal_ciphertext *F_ = nullptr;
+    // ElGamal_ciphertext *F__ = nullptr;
+    // EC_POINT *GSP = nullptr;
+    // EC_POINT *GSP_ = nullptr;
+    // EC_POINT *pk_p_ = nullptr;
+    // EC_POINT *pk_p = nullptr;
+    // EC_POINT *Q_ = nullptr;
+    // ElGamal_ciphertext **V_ = nullptr;
+
+    repeated bytes J = 1;
+    repeated bytes L = 2;
+    bytes k2_hat = 3;
+    bytes sk_p_hat = 4;
+    bytes C2 = 5;
+    bytes C2_prime = 6;
+    repeated bytes Ct1_ = 7;
+    repeated bytes Ct2_ = 8;
+    repeated bytes x_hat_ = 9;
+    repeated bytes y_hat_ = 10;
+    repeated Msg_ElGamal_ciphertext Ct = 11;
+    repeated Msg_ElGamal_ciphertext Ct_prime = 12;
+    repeated bytes CA_ = 13;
+    repeated bytes CB_ = 14;
+    repeated bytes CD__ = 15;
+    bytes E_ = 16;
+    Msg_ElGamal_ciphertext F_ = 17;
+    Msg_ElGamal_ciphertext F_prime_ = 18;
+    bytes GSP = 19;
+    bytes GSP_prime = 20;
+    bytes pk_p_prime = 21;
+    bytes pk_p = 22;
+    bytes Q_prime = 23;
+    repeated Msg_ElGamal_ciphertext V_ = 24;
+}
+
+message Msg_A4{
+    // BIGNUM *Sum = nullptr;
+    // EC_POINT *GK = nullptr;
+    // EC_POINT *GK_ = nullptr;
+    // EC_POINT *pkA__ = nullptr;
+    // BIGNUM *skA_hat_ = nullptr;
+    bytes Sum = 1;
+    bytes GK = 2;
+    bytes GK_prime = 3;
+    bytes pkA_prime_prime = 4;
+    bytes skA_hat_prime = 5;
+    Msg_ElGamal_ciphertext Sum_E = 6;
+}
+message Msg_A4_{
+    // BIGNUM *Sum = nullptr;
+    // EC_POINT *GK = nullptr;
+    // EC_POINT *GK_ = nullptr;
+    // EC_POINT *pkA__ = nullptr;
+    // BIGNUM *skA_hat_ = nullptr;
+    bytes Sum = 1;
+    bytes GK = 2;
+    bytes GK_prime = 3;
+    bytes pkA_prime_prime = 4;
+    bytes skA_hat_prime = 5;
+    Msg_ElGamal_ciphertext Sum_E = 6;
+}

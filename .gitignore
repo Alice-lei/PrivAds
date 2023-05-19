@@ -1,0 +1,3 @@
+# build目录下的所有内容
+build/
+*.log
